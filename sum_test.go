@@ -10,6 +10,6 @@ func TestSum(t *testing.T) {
 }
 
 func TestSumLarge(t *testing.T) {
-	total := Add(500, 500)
-	assert.Equal(t, total, 1000, "they should be equal")
+	total := Add(500, 501)
+	assert.Equal(t, total, 1001, "they should be equal")
 }
