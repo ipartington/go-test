@@ -1,17 +1,15 @@
 package sum
 
 import "testing"
+import "github.com/stretchr/testify/assert"
 
 func TestSum(t *testing.T) {
 	total := Add(5, 5)
-	if total != 10 {
-		t.Errorf("Sum was incorrect, got: %d, want: %d.", total, 10)
-	}
+
+	assert.Equal(t, total, 10, "they should be equal")
 }
 
 func TestSumLarge(t *testing.T) {
 	total := Add(500, 500)
-	if total != 1001 {
-		t.Errorf("Sum was incorrect, got: %d, want: %d.", total, 1001)
-	}
+	assert.Equal(t, total, 1000, "they should be equal")
 }
