@@ -11,7 +11,7 @@ func TestSum(t *testing.T) {
 
 func TestSumLarge(t *testing.T) {
 	total := Add(500, 500)
-	if total != 1000 {
-		t.Errorf("Sum was incorrect, got: %d, want: %d.", total, 1000)
+	if total != 1001 {
+		t.Errorf("Sum was incorrect, got: %d, want: %d.", total, 1001)
 	}
 }
