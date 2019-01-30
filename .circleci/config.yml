@@ -40,10 +40,15 @@ jobs: # basic units of work in a run
       - run: mkdir -p ${working_directory}/bin # create the test results directory
       - run: go get 
       - run: go get github.com/stretchr/testify/assert
-      - run: go build -o ${working_directory}/bin/harbour
+      - run: go get github.com/mitchellh/gox
+      - run:
+          name: cross compile
+          command: |
+            gox -os="linux darwin windows" -arch="amd64" -output="dist/harbour_{{.OS}}_{{.Arch}}"
+            cd dist/ && gzip *
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: ${working_directory}/bin/
-          destination: binaries          
+          path: dist
+          destination: dist          
 workflows:
   version: 2
   workflow:
