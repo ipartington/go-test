@@ -37,7 +37,7 @@ jobs: # basic units of work in a run
     <<: *defaults
     steps: # steps that comprise the `build` job
       - checkout # check out source code to working directory
-      - run: mkdir -p ${working_directory}/bin # create the test results directory
+      - run: mkdir -p ${working_directory}/dist # create the test results directory
       - run: go get 
       - run: go get github.com/stretchr/testify/assert
       - run: go get github.com/mitchellh/gox
